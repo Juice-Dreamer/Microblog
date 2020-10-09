@@ -1,0 +1,122 @@
+2020-10-05 19:31:46,821 ERROR: Exception on /search [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\flask_project\micro_blog\blog_app\main\routes.py", line 136, in search
+    posts, total = Post.search(g.search_form.q.data, page, current_app.config['POST_PER_PAGE'])
+  File "W:\py\flask_project\micro_blog\blog_app\models.py", line 100, in search
+    ids, total = query_index(cls.__tablename__, expression, page, page_size)  # 一般都会把表名作为index name
+  File "W:\py\flask_project\micro_blog\blog_app\search.py", line 23, in query_index
+    search = current_app.elasticsearch.search(
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\elasticsearch\client\utils.py", line 152, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\elasticsearch\client\__init__.py", line 1612, in search
+    return self.transport.perform_request(
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\elasticsearch\transport.py", line 392, in perform_request
+    raise e
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\elasticsearch\transport.py", line 358, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 269, in perform_request
+    self._raise_error(response.status, raw_data)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\elasticsearch\connection\base.py", line 300, in _raise_error
+    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
+elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2020-10-05 19:43:49,047 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-05 19:47:00,033 ERROR: Exception on /search [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\flask_project\micro_blog\blog_app\main\routes.py", line 136, in search
+    posts, total = Post.search(g.search_form.q.data, page, current_app.config['POST_PER_PAGE'])
+  File "W:\py\flask_project\micro_blog\blog_app\models.py", line 100, in search
+    ids, total = query_index(cls.__tablename__, expression, page, page_size)  # 一般都会把表名作为index name
+  File "W:\py\flask_project\micro_blog\blog_app\search.py", line 38, in query_index
+    return ids, search['hits']['total'['value']]
+TypeError: string indices must be integers
+2020-10-05 19:47:51,798 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-05 19:47:57,641 ERROR: Exception on /search [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\flask_project\micro_blog\blog_app\main\routes.py", line 136, in search
+    posts, total = Post.search(g.search_form.q.data, page, current_app.config['POST_PER_PAGE'])
+  File "W:\py\flask_project\micro_blog\blog_app\models.py", line 105, in search
+    when.append(ids[i], i)
+TypeError: append() takes exactly one argument (2 given)
+2020-10-05 19:48:38,489 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-05 19:51:33,447 ERROR: Exception on /search [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\flask_project\micro_blog\blog_app\main\routes.py", line 140, in search
+    prev_url = url_for('main.search', g.search_form.q.data, page=page - 1) if page > 1 else None
+TypeError: url_for() takes 1 positional argument but 2 were given
+2020-10-05 19:53:13,085 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-05 19:53:22,432 ERROR: Exception on /search [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\flask_project\micro_blog\blog_app\main\routes.py", line 141, in search
+    prev_url = url_for('main.search', g.search_form.q.data, page=page - 1,
+TypeError: url_for() takes 1 positional argument but 2 were given
+2020-10-05 19:56:52,516 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]

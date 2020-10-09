@@ -1,0 +1,108 @@
+2020-10-05 11:41:33,969 ERROR: Exception on / [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\flask_project\micro_blog\blog_app\main\routes.py", line 46, in index
+    return render_template('index.html', title='MicroBlog', form=form, posts=posts.items, next_url=next_url,
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "W:\py\flask_project\micro_blog\blog_app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "W:\py\flask_project\micro_blog\blog_app\templates\base.html", line 1, in top-level template code
+    {% extends "bootstrap/base.html" %}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
+    {% block navbar %}
+  File "W:\py\flask_project\micro_blog\blog_app\templates\base.html", line 40, in block "navbar"
+    <li><a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a></li>
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.user' with values ['username']. Did you mean 'main.user_profile' instead?
+2020-10-05 11:46:58,103 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:70]
+2020-10-05 11:47:02,161 ERROR: Exception on / [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\flask_project\micro_blog\blog_app\main\routes.py", line 47, in index
+    return render_template('index.html', title='MicroBlog', form=form, posts=posts.items, next_url=next_url,
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "W:\py\flask_project\micro_blog\blog_app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "W:\py\flask_project\micro_blog\blog_app\templates\base.html", line 1, in top-level template code
+    {% extends "bootstrap/base.html" %}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
+    {% block navbar %}
+  File "W:\py\flask_project\micro_blog\blog_app\templates\base.html", line 40, in block "navbar"
+    <li><a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a></li>
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.user' with values ['username']. Did you mean 'main.user_profile' instead?
+2020-10-05 11:53:37,037 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:70]

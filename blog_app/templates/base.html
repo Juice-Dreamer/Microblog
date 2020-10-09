@@ -1,0 +1,88 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}
+    {% if title %}
+        {{ title }} - MicroBlog
+    {% else %}
+        Welcome to MicroBlog
+    {% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bootstrap" fill="currentColor"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M12 1H4a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zM4 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H4z"/>
+                        <path fill-rule="evenodd"
+                              d="M8.537 12H5.062V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396zM6.375 4.658v2.467h1.558c1.16 0 1.764-.428 1.764-1.23 0-.78-.569-1.237-1.541-1.237H6.375zm1.898 6.229H6.375V8.162h1.822c1.236 0 1.887.463 1.887 1.348 0 .896-.627 1.377-1.811 1.377z"/>
+                    </svg>
+                    {{ _('MicroBlog') }}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
+                    <li><a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a></li>
+                </ul>
+                {% if g.search_form %}
+                    <form class="navbar-form navbar-left" method="get" action="{{ url_for('main.search') }}">
+                        <!--method="get" form-data就以get方式发送请求-->
+                        <div class="form-group">
+                            {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
+                        </div>
+                    </form>
+                {% endif %}
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_anonymous %}
+                        <li><a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a></li>
+                        <li><a href="{{ url_for('auth.register') }}">{{ _('Register') }}</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
+                        </li> <!--url_for第一个参数是视图函数名-->
+                        <li><a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+        {% endfor %}
+        {% block app_content %}
+        {% endblock %}<!--此处需要提供application content，自定义的HTML都需要block app_content-->
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }} <!--必须要这个才能在里面写脚本-->
+    {{ moment.include_moment() }} <!--生成script tag，来写js完成日期处理-->
+    {{ moment.lang(g.locale) }}
+    <script>
+        function translate(sourceElem, destElem, sourceLang, destLang) {
+            $(destElem).html('<img src="{{ url_for('static',filename='loading.gif') }}">')
+            $.post('/translate', {
+                text: $(sourceElem).text(),
+                source_language: sourceLang,
+                dest_language: destLang
+            }).done(function (resp) {
+                $(destElem).text(resp['text'])
+            }).fail(function () {
+                $(destElem).text("{{ _('Error: failed to translate the post.') }}")
+            })
+        }
+    </script>
+{% endblock %}

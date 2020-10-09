@@ -1,0 +1,28 @@
+2020-10-05 19:57:02,289 ERROR: Exception on /search [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\flask_project\micro_blog\blog_app\main\routes.py", line 140, in search
+    prev_url = url_for('main.search', g.search_form.q.data, page=page - 1) if page > 1 else None
+TypeError: url_for() takes 1 positional argument but 2 were given
+2020-10-05 19:58:44,198 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-09 09:38:48,046 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-09 10:10:17,134 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-09 10:14:51,343 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-09 10:18:23,106 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-09 10:23:44,183 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-09 10:23:51,993 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-09 10:26:37,681 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-09 10:26:47,156 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
