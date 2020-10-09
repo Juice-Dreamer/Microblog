@@ -26,3 +26,4 @@ TypeError: url_for() takes 1 positional argument but 2 were given
 2020-10-09 10:23:51,993 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
 2020-10-09 10:26:37,681 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
 2020-10-09 10:26:47,156 INFO: MicroBlog startup [in W:\py\flask_project\micro_blog\blog_app\__init__.py:73]
+2020-10-09 22:21:31,743 INFO: MicroBlog startup [in W:\py\flask_project\Microblog\blog_app\__init__.py:73]
