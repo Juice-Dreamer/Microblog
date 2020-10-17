@@ -40,7 +40,7 @@
     pip3 freeze > requirements.txt
     pip3 install -r requirements.txt
 I:\elasticsearch-7.9.2>.\bin\elasticsearch-service.bat install|start|stop|remove 注册|移除|开启|关闭服务
-
+   
 ps -ef | grep elastic
 ./bin/elasticsearch
 

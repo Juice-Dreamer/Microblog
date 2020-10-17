@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-16 17:14+0800\n"
+"POT-Creation-Date: 2020-10-17 16:27+0800\n"
 "PO-Revision-Date: 2020-10-03 20:49+0800\n"
 "Last-Translator: \n"
 "Language: zh\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: blog_app/__init__.py:20
+#: blog_app/__init__.py:22
 msgid "Please log in to access this page."
 msgstr "请登录以访问该页面"
 
@@ -105,7 +105,7 @@ msgstr "提交"
 msgid "Please use a different username."
 msgstr "用户名已存在"
 
-#: blog_app/main/forms.py:29 blog_app/templates/user.html:39
+#: blog_app/main/forms.py:29 blog_app/templates/user.html:43
 #: blog_app/templates/user_popup.html:33
 msgid "Follow"
 msgstr "关注"
@@ -153,13 +153,21 @@ msgstr "取消关注失败"
 msgid "Successfully unfollowed %(username)s."
 msgstr "已取消关注 %(username)s"
 
-#: blog_app/main/routes.py:172
+#: blog_app/main/routes.py:173
 msgid "Your message has been sent."
 msgstr "留言成功"
 
-#: blog_app/main/routes.py:174
+#: blog_app/main/routes.py:175
 msgid "Send Message"
 msgstr "写留言"
+
+#: blog_app/main/routes.py:209
+msgid "An export task is currently in progress"
+msgstr ""
+
+#: blog_app/main/routes.py:211
+msgid "Exporting posts..."
+msgstr ""
 
 #: blog_app/templates/_post.html:16
 #, python-format
@@ -190,19 +198,19 @@ msgstr "登录"
 msgid "Register"
 msgstr "注册"
 
-#: blog_app/templates/base.html:49 blog_app/templates/messages.html:2
+#: blog_app/templates/base.html:50 blog_app/templates/messages.html:3
 msgid "Messages"
 msgstr "留言板"
 
-#: blog_app/templates/base.html:50
+#: blog_app/templates/base.html:61
 msgid "Profile"
 msgstr "个人中心"
 
-#: blog_app/templates/base.html:52
+#: blog_app/templates/base.html:63
 msgid "Logout"
 msgstr "退出"
 
-#: blog_app/templates/base.html:85
+#: blog_app/templates/base.html:115
 msgid "Error: failed to translate the post."
 msgstr "翻译失败"
 
@@ -215,19 +223,19 @@ msgstr "编辑个人资料"
 msgid "Hi, %(username)s !"
 msgstr "您好, %(username)s"
 
-#: blog_app/templates/index.html:19 blog_app/templates/user.html:68
+#: blog_app/templates/index.html:19 blog_app/templates/user.html:72
 msgid "Newer posts"
 msgstr "上一页"
 
-#: blog_app/templates/index.html:24 blog_app/templates/user.html:73
+#: blog_app/templates/index.html:24 blog_app/templates/user.html:77
 msgid "Older posts"
 msgstr "下一页"
 
-#: blog_app/templates/messages.html:10
+#: blog_app/templates/messages.html:11
 msgid "Newer messages"
 msgstr "上一页"
 
-#: blog_app/templates/messages.html:15
+#: blog_app/templates/messages.html:16
 msgid "Older messages"
 msgstr "下一页"
 
@@ -272,11 +280,15 @@ msgstr "%(c)d 关注"
 msgid "Edit your profile"
 msgstr "编辑个人资料"
 
-#: blog_app/templates/user.html:46 blog_app/templates/user_popup.html:40
+#: blog_app/templates/user.html:36
+msgid "Export your posts"
+msgstr "导出数据"
+
+#: blog_app/templates/user.html:50 blog_app/templates/user_popup.html:40
 msgid "Unfollow"
 msgstr "取关"
 
-#: blog_app/templates/user.html:53
+#: blog_app/templates/user.html:57
 msgid "Send private message"
 msgstr "写留言"
 
