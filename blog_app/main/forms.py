@@ -46,3 +46,8 @@ class SearchForm(FlaskForm):
         if 'csrf_enabled' not in kwargs:  # form.hidden_tag()会增加这个字段，设置为false，才可点击搜索
             kwargs['csrf_enabled'] = False
         super(SearchForm, self).__init__(*args, **kwargs)
+
+
+class MessageForm(FlaskForm):
+    message = TextAreaField(_l('Message', validators=[DataRequired(), Length(min=0, max=140)]))
+    submit = SubmitField(_l('Submit'))

@@ -55,6 +55,13 @@ yum info package
 yum localinstall *.rpm
 yum install oracle-validated
 
+15.更新microblog
+(venv) $ git pull                              # download the new version
+(venv) $ sudo supervisorctl stop microblog     # stop the current server
+(venv) $ flask db upgrade                      # upgrade the database
+(venv) $ flask translate compile               # upgrade the translations
+(venv) $ sudo supervisorctl start microblog    # start a new server
 
+RQ实现了任务队列
 
 ```

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-09 10:23+0800\n"
+"POT-Creation-Date: 2020-10-16 17:14+0800\n"
 "PO-Revision-Date: 2020-10-03 20:49+0800\n"
 "Last-Translator: \n"
 "Language: zh\n"
@@ -97,6 +97,7 @@ msgid "About me"
 msgstr "关于"
 
 #: blog_app/main/forms.py:12 blog_app/main/forms.py:34
+#: blog_app/main/forms.py:53
 msgid "Submit"
 msgstr "提交"
 
@@ -104,7 +105,8 @@ msgstr "提交"
 msgid "Please use a different username."
 msgstr "用户名已存在"
 
-#: blog_app/main/forms.py:29
+#: blog_app/main/forms.py:29 blog_app/templates/user.html:39
+#: blog_app/templates/user_popup.html:33
 msgid "Follow"
 msgstr "关注"
 
@@ -116,43 +118,55 @@ msgstr "说点什么吧..."
 msgid "Search"
 msgstr "搜索..."
 
+#: blog_app/main/forms.py:52
+msgid "Message"
+msgstr "留言"
+
 #: blog_app/main/routes.py:38
 msgid "Successfully write a post!"
 msgstr "成功发布邮件"
 
-#: blog_app/main/routes.py:72
+#: blog_app/main/routes.py:73
 msgid "Your changes have been saved!"
 msgstr "更改已保存"
 
-#: blog_app/main/routes.py:86 blog_app/main/routes.py:105
+#: blog_app/main/routes.py:87 blog_app/main/routes.py:106
 #, python-format
 msgid "User %(username)s not found."
 msgstr "用户 %(username)s 未找到"
 
-#: blog_app/main/routes.py:89
+#: blog_app/main/routes.py:90
 msgid "You cannot follow yourself."
 msgstr "关注失败"
 
-#: blog_app/main/routes.py:93
+#: blog_app/main/routes.py:94
 #, python-format
 msgid "Successfully followed %(username)s."
 msgstr "成功关注 %(username)s"
 
-#: blog_app/main/routes.py:108
+#: blog_app/main/routes.py:109
 msgid "You cannot unfollow yourself."
 msgstr "取消关注失败"
 
-#: blog_app/main/routes.py:112
+#: blog_app/main/routes.py:113
 #, python-format
 msgid "Successfully unfollowed %(username)s."
 msgstr "已取消关注 %(username)s"
 
-#: blog_app/templates/_post.html:14
+#: blog_app/main/routes.py:172
+msgid "Your message has been sent."
+msgstr "留言成功"
+
+#: blog_app/main/routes.py:174
+msgid "Send Message"
+msgstr "写留言"
+
+#: blog_app/templates/_post.html:16
 #, python-format
 msgid "%(username)s said %(when)s."
 msgstr "%(username)s 于 %(when)s 发布"
 
-#: blog_app/templates/_post.html:21
+#: blog_app/templates/_post.html:23
 msgid "Translate"
 msgstr "翻译"
 
@@ -166,7 +180,7 @@ msgstr "主页"
 
 #: blog_app/templates/base.html:34
 msgid "Explore"
-msgstr "发现"
+msgstr "发现更多"
 
 #: blog_app/templates/base.html:46
 msgid "Login"
@@ -176,15 +190,19 @@ msgstr "登录"
 msgid "Register"
 msgstr "注册"
 
-#: blog_app/templates/base.html:49
+#: blog_app/templates/base.html:49 blog_app/templates/messages.html:2
+msgid "Messages"
+msgstr "留言板"
+
+#: blog_app/templates/base.html:50
 msgid "Profile"
 msgstr "个人中心"
 
-#: blog_app/templates/base.html:51
+#: blog_app/templates/base.html:52
 msgid "Logout"
 msgstr "退出"
 
-#: blog_app/templates/base.html:84
+#: blog_app/templates/base.html:85
 msgid "Error: failed to translate the post."
 msgstr "翻译失败"
 
@@ -197,12 +215,20 @@ msgstr "编辑个人资料"
 msgid "Hi, %(username)s !"
 msgstr "您好, %(username)s"
 
-#: blog_app/templates/index.html:19 blog_app/templates/user.html:58
+#: blog_app/templates/index.html:19 blog_app/templates/user.html:68
 msgid "Newer posts"
 msgstr "上一页"
 
-#: blog_app/templates/index.html:24 blog_app/templates/user.html:63
+#: blog_app/templates/index.html:24 blog_app/templates/user.html:73
 msgid "Older posts"
+msgstr "下一页"
+
+#: blog_app/templates/messages.html:10
+msgid "Newer messages"
+msgstr "上一页"
+
+#: blog_app/templates/messages.html:15
+msgid "Older messages"
 msgstr "下一页"
 
 #: blog_app/templates/search.html:4
@@ -217,29 +243,42 @@ msgstr "上一页"
 msgid "Next results"
 msgstr "下一页"
 
+#: blog_app/templates/send_message.html:5
+#, python-format
+msgid "Send Message to %(recipient)s"
+msgstr "成功给用户 %(recipient)s 留言"
+
 #: blog_app/templates/user.html:9
 #, python-format
 msgid "User: %(username)s"
 msgstr "用户名: %(username)s"
 
-#: blog_app/templates/user.html:18
+#: blog_app/templates/user.html:18 blog_app/templates/user_popup.html:15
 #, python-format
 msgid "Last seen on: %(tm)s"
 msgstr "上次登录: %(tm)s"
 
-#: blog_app/templates/user.html:25
+#: blog_app/templates/user.html:27 blog_app/templates/user_popup.html:23
 #, python-format
 msgid "%(c)d followers"
 msgstr "%(c)d 粉丝"
 
-#: blog_app/templates/user.html:26
+#: blog_app/templates/user.html:28 blog_app/templates/user_popup.html:24
 #, python-format
 msgid "%(c)d following."
 msgstr "%(c)d 关注"
 
-#: blog_app/templates/user.html:29
+#: blog_app/templates/user.html:32
 msgid "Edit your profile"
 msgstr "编辑个人资料"
+
+#: blog_app/templates/user.html:46 blog_app/templates/user_popup.html:40
+msgid "Unfollow"
+msgstr "取关"
+
+#: blog_app/templates/user.html:53
+msgid "Send private message"
+msgstr "写留言"
 
 #: blog_app/templates/auth/login.html:12
 msgid "New User ?"
@@ -278,4 +317,25 @@ msgstr "已通知管理员，抱歉给您带来的不便"
 
 #~ msgid "Register account"
 #~ msgstr "注册新用户"
+
+#~ msgid "MicroBlog"
+#~ msgstr ""
+
+#~ msgid "Home"
+#~ msgstr "主页"
+
+#~ msgid "Explore"
+#~ msgstr "发现"
+
+#~ msgid "Login"
+#~ msgstr "登录"
+
+#~ msgid "Profile"
+#~ msgstr "个人中心"
+
+#~ msgid "Logout"
+#~ msgstr "退出"
+
+#~ msgid "Error: failed to translate the post."
+#~ msgstr "翻译失败"
 
