@@ -33,7 +33,7 @@
             </p>
             {% if not current_user.get_task_in_progress('export_posts') %}
             <p>
-                <a href="{{ url_for('main.export_posts') }}">{{_('Export your posts')}}</a>
+                <a href="{{ url_for('main.export_posts') }}">{{ _('Export your posts') }}</a>
             </p>
             {% endif %}
             {% elif not current_user.is_following(user) %}

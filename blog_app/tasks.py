@@ -43,7 +43,7 @@ def export_posts(user_id):
         send_mail('[Microblog] Your blog posts', sender=app.config['ADMINS'][0], recipients=[user.email],
                   text_body=render_template('email/export_posts.txt', user=user),
                   html_body=render_template('email/export_posts.html', user=user),
-                  attachments=[('posts.json', 'application/json', json.dumps({'posts':data},indent=4))],sync=True)
+                  attachments=[('posts.json', 'application/json', json.dumps({'posts': data}, indent=4))], sync=True)
     except:
         app.logger.error('Unhandled exception', exc_info=sys.exc_info())
     finally:

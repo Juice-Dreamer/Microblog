@@ -113,8 +113,8 @@ class User(UserMixin, db.Model):  # 数据库表命是snake case 如user，GoodL
     def get_tasks_in_progress(self):
         return Task.query.filter_by(user=self, complete=False).all()
 
-    def get_task_ion_progress(self,name):
-        return Task.query.filter_by(name=name,user=self,complete=False).first()
+    def get_task_in_progress(self, name):
+        return Task.query.filter_by(name=name, user=self, complete=False).first()
 
     @staticmethod
     def verify_reset_password_token(token):

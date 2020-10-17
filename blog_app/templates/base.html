@@ -89,9 +89,6 @@ Welcome to MicroBlog
             {% endfor %}
         {% endif %}
         {% endwith %}
-<!--    {% for message in get_flashed_messages() %}-->
-<!--    <div class="alert alert-info" role="alert">{{ message }}</div>-->
-<!--    {% endfor %}-->
     {% block app_content %}
     {% endblock %}<!--此处需要提供application content，自定义的HTML都需要block app_content-->
 </div>
@@ -158,22 +155,18 @@ Welcome to MicroBlog
         $('#'+task_id+'-progress').text(progress)
     }
 
-    {% if current_user.isauthenticated %}
+    {% if current_user.is_authenticated %}
     $(function () {
         let since = 0
         setInterval(function () {
-            $.ajax('{{ url_for('
-            main.notifications
-            ') }}?since=' + since
-        ).
-            done(function (notifications) {
+            $.ajax('{{ url_for('main.notifications') }}?since=' + since).done(function (notifications) {
                 for (let i = 0; i < notifications.length; i++) {
                     switch (notifications[i].name){
                         case 'unread_message_count':
                             set_message_count(notifications[i].data)
                             break
                         case 'task_progress':
-                            set_task_progress(notifications[i].data.task_id,notifications[i].data.progress)
+                            set_task_progress(notifications[i].data.task_id, notifications[i].data.progress)
                             break
                     }
                     since = notifications[i].timestamp

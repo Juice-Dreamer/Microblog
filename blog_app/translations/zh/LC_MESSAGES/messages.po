@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-17 16:27+0800\n"
+"POT-Creation-Date: 2020-10-17 22:02+0800\n"
 "PO-Revision-Date: 2020-10-03 20:49+0800\n"
 "Last-Translator: \n"
 "Language: zh\n"
@@ -163,11 +163,11 @@ msgstr "写留言"
 
 #: blog_app/main/routes.py:209
 msgid "An export task is currently in progress"
-msgstr ""
+msgstr "正在导出，请稍后再试"
 
 #: blog_app/main/routes.py:211
 msgid "Exporting posts..."
-msgstr ""
+msgstr "正在导出数据..."
 
 #: blog_app/templates/_post.html:16
 #, python-format
@@ -210,7 +210,7 @@ msgstr "个人中心"
 msgid "Logout"
 msgstr "退出"
 
-#: blog_app/templates/base.html:115
+#: blog_app/templates/base.html:112
 msgid "Error: failed to translate the post."
 msgstr "翻译失败"
 
@@ -323,6 +323,7 @@ msgstr "糟糕，服务器发生未知错误"
 #: blog_app/templates/errors/500.html:4
 msgid "The administrator has been notified. Sorry for the inconvenience!"
 msgstr "已通知管理员，抱歉给您带来的不便"
+
 
 #~ msgid "Hi, %(username)s"
 #~ msgstr "您好，%(username)s"
