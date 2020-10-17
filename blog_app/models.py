@@ -8,6 +8,8 @@ from hashlib import md5
 import jwt
 from time import time
 import json
+import rq
+import redis
 from blog_app.search import query_index, add_to_index, remove_from_index
 
 followers = db.Table('followers',
@@ -41,6 +43,8 @@ class User(UserMixin, db.Model):  # 数据库表命是snake case 如user，GoodL
                                        lazy='dynamic')
     last_message_read_time = db.Column(db.DateTime)
     notifications = db.relationship('Notification', backref='user', lazy='dynamic')
+
+    tasks = db.relationship('Task', backref='user', lazy='dynamic')
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -86,11 +90,31 @@ class User(UserMixin, db.Model):  # 数据库表命是snake case 如user，GoodL
         last_read_time = self.last_message_read_time or datetime(1900, 1, 1)
         return Message.query.filter_by(recipient=self).filter(Message.timestamp > last_read_time).count()
 
-    def add_notification(self,name,data):
+    def add_notification(self, name, data):
         self.notifications.filter_by(name=name).delete()
-        n=Notification(name=name,payload_json=json.dumps(data),user=self)
+        n = Notification(name=name, payload_json=json.dumps(data), user=self)
         db.session.add(n)
         return n
+
+    def launch_task(self, name, description, *args, **kwargs):
+        """
+        添加一个任务到队列中
+        :param name: 任务函数名，如blog_app.tasks.example
+        :param description: 呈现给用户的简要描述
+        :param args: 任务函数需要的参数
+        :param kwargs:
+        :return:
+        """
+        rq_job = current_app.task_queue.enqueue('blog_app.tasks' + name, self.id, *args, **kwargs)
+        task = Task(id=rq_job.get_id(), name=name, description=description, user=self)
+        db.session.add(task)
+        return task
+
+    def get_tasks_in_progress(self):
+        return Task.query.filter_by(user=self, complete=False).all()
+
+    def get_task_ion_progress(self,name):
+        return Task.query.filter_by(name=name,user=self,complete=False).first()
 
     @staticmethod
     def verify_reset_password_token(token):
@@ -194,6 +218,25 @@ class Notification(db.Model):
 
     def get_data(self):
         return json.loads(self.payload_json)
+
+
+class Task(db.Model):
+    id = db.Column(db.String(36), primary_key=True)
+    name = db.Column(db.String(128), index=True)
+    description = db.Column(db.String(128))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    complete = db.Column(db.Boolean, default=False)
+
+    def get_rq_job(self):
+        try:
+            rq_job = rq.job.Job.fetch(self.id, connection=current_app.redis)
+        except (redis.exceptions.RedisError, rq.exceptions.NoSuchJobError):
+            return None
+        return rq_job
+
+    def get_progress(self):
+        job = self.get_rq_job()
+        return job.meta.get('progress', 0) if job is not None else 100
 
 
 @login.user_loader

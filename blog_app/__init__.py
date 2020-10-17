@@ -12,6 +12,8 @@ from flask_moment import Moment
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
 from elasticsearch import Elasticsearch
+from redis import Redis
+import rq
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -36,6 +38,9 @@ def create_app(config_class=Config):
     moment.init_app(app)
     babel.init_app(app)
 
+    app.redis = Redis.from_url(app.config['REDIS_URL'])
+    app.task_queue = rq.Queue('microblog-tasks', connection=app.redis)
+
     from blog_app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)  # 注册错误处理蓝图
     from blog_app.auth import bp as auth_bp
@@ -43,8 +48,8 @@ def create_app(config_class=Config):
     from blog_app.main import bp as main_bp
     app.register_blueprint(main_bp, template_folder='templates')  # 注册main蓝图
 
-    app.elasticsearch=Elasticsearch([app.config['ELASTICSEARCH_URL']]) if app.config['ELASTICSEARCH_URL'] else None
-    print('是否配置elasticsearch？',app.elasticsearch)
+    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) if app.config['ELASTICSEARCH_URL'] else None
+    print('是否配置elasticsearch？', app.elasticsearch)
     if not app.debug and not app.testing:  # 调试模式和测试模式都不打印日志
         # 把错误信息发送至邮箱
         if app.config['MAIL_SERVER']:
