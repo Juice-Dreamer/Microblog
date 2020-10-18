@@ -254,7 +254,7 @@ msgstr "下一页"
 #: blog_app/templates/send_message.html:5
 #, python-format
 msgid "Send Message to %(recipient)s"
-msgstr "成功给用户 %(recipient)s 留言"
+msgstr "对用户 %(recipient)s 说点什么吧~~~"
 
 #: blog_app/templates/user.html:9
 #, python-format
