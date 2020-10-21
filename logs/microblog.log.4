@@ -1,4 +1,4 @@
-2020-10-16 15:42:13,875 ERROR: Exception on /unfollow/yuyuan1 [POST] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+2020-10-16 15:42:15,789 ERROR: Request finalizing failed with an error while handling an error [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1975]
 Traceback (most recent call last):
   File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -51,3 +51,55 @@ Traceback (most recent call last):
   File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\__init__.py", line 689, in gettext
     return get_domain().gettext(*args, **kwargs)
 TypeError: gettext() takes 2 positional arguments but 3 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1970, in finalize_request
+    response = self.process_response(response)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2269, in process_response
+    self.session_interface.save_session(self, ctx.session, response)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\sessions.py", line 378, in save_session
+    val = self.get_signing_serializer(app).dumps(dict(session))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\itsdangerous\serializer.py", line 166, in dumps
+    payload = want_bytes(self.dump_payload(obj))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\itsdangerous\url_safe.py", line 42, in dump_payload
+    json = super(URLSafeSerializerMixin, self).dump_payload(obj)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\itsdangerous\serializer.py", line 133, in dump_payload
+    return want_bytes(self.serializer.dumps(obj, **self.serializer_kwargs))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 305, in dumps
+    return dumps(self.tag(value), separators=(",", ":"))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
+    return tag.tag(value)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 127, in to_json
+    return dict((k, self.serializer.tag(v)) for k, v in iteritems(value))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 127, in <genexpr>
+    return dict((k, self.serializer.tag(v)) for k, v in iteritems(value))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
+    return tag.tag(value)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 153, in to_json
+    return [self.serializer.tag(item) for item in value]
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 153, in <listcomp>
+    return [self.serializer.tag(item) for item in value]
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
+    return tag.tag(value)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 89, in tag
+    return {self.key: self.to_json(value)}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 140, in to_json
+    return [self.serializer.tag(item) for item in value]
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 140, in <listcomp>
+    return [self.serializer.tag(item) for item in value]
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
+    return tag.tag(value)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 89, in tag
+    return {self.key: self.to_json(value)}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 184, in to_json
+    return text_type(value.__html__())
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\speaklater.py", line 66, in __html__
+    return str(self)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\speaklater.py", line 21, in __str__
+    return str(self._func(*self._args, **self._kwargs))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\__init__.py", line 689, in gettext
+    return get_domain().gettext(*args, **kwargs)
+TypeError: gettext() takes 2 positional arguments but 3 were given
+2020-10-16 15:48:18,503 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]

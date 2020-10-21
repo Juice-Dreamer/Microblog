@@ -1,110 +1,122 @@
-2020-10-16 15:48:43,796 ERROR: Request finalizing failed with an error while handling an error [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1975]
+2020-10-16 17:11:56,435 ERROR: Exception on / [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1970, in finalize_request
-    response = self.process_response(response)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2269, in process_response
-    self.session_interface.save_session(self, ctx.session, response)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\sessions.py", line 378, in save_session
-    val = self.get_signing_serializer(app).dumps(dict(session))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\itsdangerous\serializer.py", line 166, in dumps
-    payload = want_bytes(self.dump_payload(obj))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\itsdangerous\url_safe.py", line 42, in dump_payload
-    json = super(URLSafeSerializerMixin, self).dump_payload(obj)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\itsdangerous\serializer.py", line 133, in dump_payload
-    return want_bytes(self.serializer.dumps(obj, **self.serializer_kwargs))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 305, in dumps
-    return dumps(self.tag(value), separators=(",", ":"))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
-    return tag.tag(value)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 127, in to_json
-    return dict((k, self.serializer.tag(v)) for k, v in iteritems(value))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 127, in <genexpr>
-    return dict((k, self.serializer.tag(v)) for k, v in iteritems(value))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
-    return tag.tag(value)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 153, in to_json
-    return [self.serializer.tag(item) for item in value]
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 153, in <listcomp>
-    return [self.serializer.tag(item) for item in value]
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
-    return tag.tag(value)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 89, in tag
-    return {self.key: self.to_json(value)}
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 140, in to_json
-    return [self.serializer.tag(item) for item in value]
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 140, in <listcomp>
-    return [self.serializer.tag(item) for item in value]
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
-    return tag.tag(value)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 89, in tag
-    return {self.key: self.to_json(value)}
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 184, in to_json
-    return text_type(value.__html__())
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\speaklater.py", line 66, in __html__
-    return str(self)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\speaklater.py", line 21, in __str__
-    return str(self._func(*self._args, **self._kwargs))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\__init__.py", line 689, in gettext
-    return get_domain().gettext(*args, **kwargs)
-TypeError: gettext() takes 2 positional arguments but 3 were given
-
-During handling of the above exception, another exception occurred:
-
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\Microblog\blog_app\main\routes.py", line 48, in index
+    return render_template('index.html', title='Home', form=form, posts=posts.items, next_url=next_url,
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "W:\py\Microblog\blog_app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "W:\py\Microblog\blog_app\templates\base.html", line 49, in template
+    <li><a href="{{ url_for('main.messages'}}">{{ _('Messages') }}</a>
+jinja2.exceptions.TemplateSyntaxError: unexpected '}', expected ')'
+2020-10-16 17:12:33,277 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 17:14:12,308 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 17:15:52,148 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 17:15:58,221 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 17:19:31,911 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 17:29:27,631 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 19:23:23,818 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 19:23:44,897 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 19:44:00,236 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 19:44:07,388 ERROR: Exception on / [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1970, in finalize_request
-    response = self.process_response(response)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2269, in process_response
-    self.session_interface.save_session(self, ctx.session, response)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\sessions.py", line 378, in save_session
-    val = self.get_signing_serializer(app).dumps(dict(session))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\itsdangerous\serializer.py", line 166, in dumps
-    payload = want_bytes(self.dump_payload(obj))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\itsdangerous\url_safe.py", line 42, in dump_payload
-    json = super(URLSafeSerializerMixin, self).dump_payload(obj)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\itsdangerous\serializer.py", line 133, in dump_payload
-    return want_bytes(self.serializer.dumps(obj, **self.serializer_kwargs))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 305, in dumps
-    return dumps(self.tag(value), separators=(",", ":"))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
-    return tag.tag(value)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 127, in to_json
-    return dict((k, self.serializer.tag(v)) for k, v in iteritems(value))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 127, in <genexpr>
-    return dict((k, self.serializer.tag(v)) for k, v in iteritems(value))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
-    return tag.tag(value)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 153, in to_json
-    return [self.serializer.tag(item) for item in value]
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 153, in <listcomp>
-    return [self.serializer.tag(item) for item in value]
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
-    return tag.tag(value)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 89, in tag
-    return {self.key: self.to_json(value)}
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 140, in to_json
-    return [self.serializer.tag(item) for item in value]
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 140, in <listcomp>
-    return [self.serializer.tag(item) for item in value]
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 287, in tag
-    return tag.tag(value)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 89, in tag
-    return {self.key: self.to_json(value)}
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\json\tag.py", line 184, in to_json
-    return text_type(value.__html__())
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\speaklater.py", line 66, in __html__
-    return str(self)
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\speaklater.py", line 21, in __str__
-    return str(self._func(*self._args, **self._kwargs))
-  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_babel\__init__.py", line 689, in gettext
-    return get_domain().gettext(*args, **kwargs)
-TypeError: gettext() takes 2 positional arguments but 3 were given
-2020-10-16 15:54:11,971 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
-2020-10-16 16:16:47,929 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
-2020-10-16 16:17:00,758 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
-2020-10-16 17:03:58,713 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
-2020-10-16 17:11:40,932 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
-2020-10-16 17:11:47,185 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "W:\py\Microblog\blog_app\main\routes.py", line 48, in index
+    return render_template('index.html', title='Home', form=form, posts=posts.items, next_url=next_url,
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\templating.py", line 137, in render_template
+    return _render(
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "W:\py\Microblog\blog_app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "W:\py\Microblog\blog_app\templates\base.html", line 158, in template
+    endif %
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of statement block', got '%'
+2020-10-16 19:44:41,941 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-16 20:33:35,424 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-17 09:54:54,359 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-17 09:58:59,042 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-17 11:13:11,282 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-17 11:19:34,750 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-17 11:39:55,682 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-17 12:00:22,573 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-17 12:00:32,313 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:73]
+2020-10-17 16:26:01,033 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-17 16:27:59,313 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-17 16:29:22,972 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-17 16:33:40,352 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-17 21:50:20,593 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-17 22:00:25,431 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-17 22:02:42,985 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-17 22:09:00,110 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-18 19:44:20,578 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-18 19:44:42,103 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:78]
+2020-10-21 22:12:12,666 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:80]
+2020-10-21 22:12:40,318 ERROR: Exception on /api/users/1 [GET] [in w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "w:\py\flask_project\micro_blog\blog_env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "W:\py\Microblog\blog_app\api\users.py", line 7, in get_user
+    return jsonify(User.query.get_or_404(id).to_dict())
+  File "W:\py\Microblog\blog_app\models.py", line 144, in to_dict
+    'last_seen': self.last_seen.isoformat() + 'Z',
+AttributeError: 'NoneType' object has no attribute 'isoformat'

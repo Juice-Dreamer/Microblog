@@ -47,6 +47,8 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp, url_prefix='/auth')  # 注册授权处理蓝图，login的路径就是 localhost:5000/auth/login
     from blog_app.main import bp as main_bp
     app.register_blueprint(main_bp, template_folder='templates')  # 注册main蓝图
+    from blog_app.api import bp as api_bp
+    app.register_blueprint(api_bp, url_prefix='/api')  # xxx/api/users来访问
 
     app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) if app.config['ELASTICSEARCH_URL'] else None
     print('是否配置elasticsearch？', app.elasticsearch)
