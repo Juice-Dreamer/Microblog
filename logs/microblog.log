@@ -94,3 +94,5 @@ AttributeError: 'NoneType' object has no attribute 'isoformat'
 2020-10-21 23:03:56,843 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:80]
 2020-10-21 23:13:01,491 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:80]
 2020-10-21 23:21:01,032 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:80]
+2020-10-22 14:31:40,370 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:80]
+2020-10-22 14:32:00,948 INFO: MicroBlog startup [in W:\py\Microblog\blog_app\__init__.py:80]
